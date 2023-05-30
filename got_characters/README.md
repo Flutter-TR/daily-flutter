@@ -4,4 +4,4 @@ A new Flutter project.
 
 ## Screenshots
 
-![Screenshots](Screen Shot 2023-05-30 at 10.40.51.png)
+![](Screen_Shot_2023-05-30.png)
