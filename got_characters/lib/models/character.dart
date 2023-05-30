@@ -4,4 +4,5 @@ class Character {
   String? img; //String? img;
   String? nickName;
   String? family;
+  String? title;
 }
