@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
         secondaryHeaderColor: const Color(0xFF222f3e),
         //backgroundColor: Color(0xFFfc5c65),
       ),
-      home: const AllCharacters(),
+      home: AllCharacters(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,45 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../models/character.dart';
+import 'package:got_characters/models/character.dart';
 import 'package:got_characters/screens/character_detail_screen.dart';
 
 class AllCharacters extends StatefulWidget {
-  const AllCharacters({super.key});
+  //const AllCharacters({super.key});
 
   @override
-  State<AllCharacters> createState() => _AllCharactersState();
-  //_AllCharactersState createState() => _AllCharactersState();
+  //State<AllCharacters> createState() => _AllCharactersState();
+  _AllCharactersState createState() => _AllCharactersState();
 }
 
 class _AllCharactersState extends State<AllCharacters> {
 
   final String charsURL = "https://thronesapi.com/api/v2/characters";
 
-  List<Character> characterArr = <Character>[];
-  void getAllCharacters() async {
-    Response res = await get(charsURL);
-
-    //print(res.body);
-
-    var data = await jsonDecode(res.body);
-    //print(data[0]);
-    setState(() {
-      for(var i = 0; i < data.length; i++) {
-        Character k = Character();
-        k.id = data[i]['id'];
-        k.fullName = data[i]['fullName'];
-        k.img = data[i]['imageUrl'];
-
-        characterArr.add(k);
-      }
-    });
-  }
+  List<Character> characters = [];
 
   @override
   void initState() {
     super.initState();
-    getAllCharacters();
+    fetchCharacters();
+  }
+
+  Future<void> fetchCharacters() async {
+    final response =
+        await http.get(Uri.parse(charsURL));
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      setState(() {
+        characters = List<Character>.from(jsonData.map((x) => Character.fromJson(x)));
+      });
+    } else {
+      // Handle error
+      print('Failed to fetch characters');
+    }
   }
 
   @override
@@ -58,16 +54,16 @@ class _AllCharactersState extends State<AllCharacters> {
           ) 
         ),
         child: ListView.builder(
-        itemCount:characterArr.length,
+        itemCount:characters.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => Detail(id:characterArr[index].id)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CharacterDetailsScreen(id: characters[index].id!)));
             },
             child: ListTile(
-              title: Text(characterArr[index].fullName??"", style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 20.0),),
+              title: Text(characters[index].fullName??"", style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 20.0),),
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(characterArr[index].img??""),
+                backgroundImage: NetworkImage(characters[index].img??""),
               ),
             ),
           );
