@@ -12,9 +12,18 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   animated_text_kit: ^2.2.0
   image_fade: ^0.2.1
+  #flutter_inappwebview: ^5.3.2
+  webview_flutter: ^4.0.1
+  #path_provider: ^2.0.15
 
   flutter:
     sdk: flutter
+  
+
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_test:
