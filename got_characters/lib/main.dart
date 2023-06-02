@@ -1,27 +1,10 @@
 
-
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:got_characters/screens/character_list_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:window_size/window_size.dart';
 
 
 void main() {
-  setupWindow();
   runApp(MyApp());
-}
-
-const double windowWidth = 1200;
-const double windowHeight = 800;
-
-void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    WidgetsFlutterBinding.ensureInitialized();
-    setWindowTitle('JSON Sample');
-    setWindowMinSize(const Size(windowWidth, windowHeight));
-  }
 }
 
 class MyApp extends StatelessWidget {
