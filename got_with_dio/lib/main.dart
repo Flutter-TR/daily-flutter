@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'package:dio/dio.dart';
+//import 'package:dio/dio.dart';
 
+import 'package:got_with_dio/router.dart';
+import 'package:got_with_dio/screens/home.dart';
 
+void main() => runApp(MyApp());
 
-void main() {
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      onGenerateRoute: Routering.generateRoute,
+      initialRoute: homeRoute,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: Home(),
     );
   }
 }
