@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../router.dart';
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -33,7 +35,7 @@ class Home extends StatelessWidget {
                   heroTag: 2,
                   child: const Icon(Icons.navigate_next),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/SecondScreen');
+                    Navigator.pushNamed(context, secondScreenRoute);
                   },
                 ),
               ],
