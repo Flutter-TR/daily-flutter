@@ -6,14 +6,14 @@ class Routering {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case homeRoute:
-        return MaterialPageRoute(builder: (_) => Home());
+        return MaterialPageRoute(builder: (_) => const Home());
       case secondScreenRoute:
-        return MaterialPageRoute(builder: (_) => SecondScreen());
+        return MaterialPageRoute(builder: (_) => const SecondScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
                 appBar: AppBar(),
-                body: Center(
+                body: const Center(
                   child: Text('Ters giden birşeyler oldu'),
                 ),
               ),

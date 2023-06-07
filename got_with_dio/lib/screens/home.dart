@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,19 +21,19 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 FloatingActionButton(
                   heroTag: 1,
-                  child: Icon(Icons.clear),
+                  child: const Icon(Icons.clear),
                   onPressed: () {
                     Navigator.pushNamed(context, 'a');
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 25.0,
                 ),
                 FloatingActionButton(
                   heroTag: 2,
-                  child: Icon(Icons.navigate_next),
+                  child: const Icon(Icons.navigate_next),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/secondRoute');
+                    Navigator.pushNamed(context, '/SecondScreen');
                   },
                 ),
               ],
