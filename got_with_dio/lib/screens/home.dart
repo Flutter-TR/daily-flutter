@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
                   heroTag: 1,
                   child: const Icon(Icons.clear),
                   onPressed: () {
-                    Navigator.pushNamed(context, 'a');
+                    Navigator.pushNamed(context, 'asdfsdf');
                   },
                 ),
                 const SizedBox(
