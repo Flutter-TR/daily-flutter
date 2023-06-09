@@ -10,6 +10,7 @@ class NewHome extends StatefulWidget {
 }
   
 class _NewHomeState extends State<NewHome> {
+  var jsonList;
   @override
   void initState() {
     //super.initState();
@@ -20,7 +21,15 @@ class _NewHomeState extends State<NewHome> {
     try {
       var response = await Dio()
           .get('https://thronesapi.com/api/v2/characters');
-      print(response);
+      //print(response);
+      if(response.statusCode == 200) {
+        setState(() {
+          jsonList = response.data as List;
+          //print(jsonList);
+        });
+      } else {
+        print(response.statusCode);
+      }
     } catch (e) {
       print(e);
     }
@@ -37,12 +46,22 @@ class _NewHomeState extends State<NewHome> {
         centerTitle: true,
       ),
       body: ListView.builder(
-          itemCount: 10,
+          //itemCount: 10,
+          itemCount: jsonList == null ? 0 : jsonList.length,
           itemBuilder: (BuildContext context, int index) {
-            return const Card(
+            return Card(
                 child: ListTile(
-              title: Text('name'),
-              subtitle: Text('family'),
+              leading: ClipRRect(
+                borderRadius: BorderRadius.circular(80),
+                child: Image.network(
+                  jsonList[index]['imageUrl'],
+                  fit: BoxFit.fill,
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              title: Text(jsonList[index]['fullName']),
+              subtitle: Text(jsonList[index]['family']),
             ));
           }),
     );
