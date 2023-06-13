@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'stack.dart';
+
 void main() {
   runApp(const MainApp());
 }
@@ -16,7 +18,8 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text(appTitle),
         ),
-        body: const MyTestForm(),
+    //    body: const MyTestForm(),
+        body: const StackScreen(),
       ),
     );
   }
