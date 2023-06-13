@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clipboard/clipboard.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,6 +11,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Copy Paste Example',
@@ -80,7 +82,20 @@ class _HomePageState extends State<HomePage> {
                         'PASTE',
                         style: TextStyle(color: Colors.white),
                       ),
-                    )
+                    ),
+
+                   ElevatedButton(
+                    child: const Text('Open Snackbar'),
+                    onPressed: (){
+                      Get.snackbar(
+                        "This is an Snackbar test",
+                        "Hello everyone",
+                        icon: const Icon(Icons.person, color: Colors.white),
+                        snackPosition: SnackPosition.BOTTOM,
+                          
+                        );
+                    },
+                  ),
                   ],
                 ),
               ],
