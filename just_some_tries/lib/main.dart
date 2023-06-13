@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'stack.dart';
+import 'percent.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,7 +20,8 @@ class MainApp extends StatelessWidget {
           title: const Text(appTitle),
         ),
     //    body: const MyTestForm(),
-        body: const StackScreen(),
+    //    body: const StackScreen(),
+        body: const PercentIndicator(),
       ),
     );
   }
