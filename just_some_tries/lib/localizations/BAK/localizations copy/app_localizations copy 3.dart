@@ -82,7 +82,3 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
     return false;
   }
 }
-
-extension AppLocalizationExtension on BuildContext {
-  String translate(String key) => AppLocalizations.of(this)!.translate(key);
-}
