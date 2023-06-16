@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 //import 'app.dart';
@@ -16,14 +14,16 @@ class NavTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp (
       routes: {
-        '/': (context) => HomeScreen(),
-        '/details': (context) => DetailScreen(),
+        '/': (context) => const HomeScreen(),
+        '/details': (context) => const DetailScreen(),
       },
     );
   }
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +44,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

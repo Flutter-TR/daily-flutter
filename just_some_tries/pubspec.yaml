@@ -21,6 +21,7 @@ dev_dependencies:
   percent_indicator: ^4.2.3
   injectable_generator: ^2.1.6
   build_runner: ^2.4.5
+  json_annotation: ^4.8.0
 
 flutter:
   uses-material-design: true
